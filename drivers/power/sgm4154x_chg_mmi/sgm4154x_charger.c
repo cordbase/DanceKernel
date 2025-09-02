@@ -3114,6 +3114,9 @@ static int sgm4154x_enable_charging(struct charger_device *chg_dev, bool enable)
 		enable ? "enable" : "disable",
 		rc ? "failed" : "success");
 
+	if (enable)
+		sgm4154x_rerun_aicl(chg_dev);
+	
 	return rc;
 }
 
