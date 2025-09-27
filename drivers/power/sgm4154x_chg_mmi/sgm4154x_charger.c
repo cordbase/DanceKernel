@@ -2461,6 +2461,7 @@ static void charger_detect_work_func(struct work_struct *work)
 
 		dev_info(sgm->dev, "%s:adapter plugged in\n", __func__);
 		sgm->status |= SGM4154X_STATUS_PLUGIN;
+		sgm->typec_apsd_rerun_done = false;
 		sgm4154x_vbus_plugin(sgm);
 	}
 
